@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Live Temperature</title>
+    <link href="/style.css" rel="stylesheet">
+    <script src="app.js"></script>
+</head>
+<body>
+<div class="header">
+    <div>
+        <h1 id="text"> - </h1>
+    </div>
+
+
+    <a href="/getgraph"> Report</a>
+
+
+</div>
+</body>
+</html>
+
+body
+{
+background: bisque;
+}
+
+.header {
+padding-top: 20%;
+text-align: center;
+padding-bottom: 5%;
+}
+
+a {
+overflow: hidden;
+display: inline-block;
+width: 20%;
+height: 20%;
+padding: 20px;
+border: 1px solid black;
+color: black;
+text-align: center;
+text-decoration: none;
+}
+
+a:hover {
+background-color: black;
+color: bisque;
+}

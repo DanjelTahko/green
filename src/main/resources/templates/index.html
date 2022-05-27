@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Green House</title>
+    <link href="/test.css" rel="stylesheet">
+</head>
+<body>
+
+    <div class="header">
+        <div class="column">
+            <h1>Daniels klimatanläggning</h1>
+        </div>
+
+        <div class="column">
+            <p th:text="'Senaste elpris : ' + ${priceOutput} + ' kr'"></p>
+
+            <form action="/" method="post">
+                <label for="priceInput">Nytt elpris : </label>
+                <input type="text" id="priceInput" name="priceInput" required>
+                <input type="submit" value="Submit">
+            </form>
+        </div>
+
+    </div>
+
+    <div class="menu">
+        <a th:href="@{/temperature}"> Temperature</a>
+        <a th:href="@{/humidity}"> Humidity</a>
+        <a th:href="@{/report}"> Report</a>
+    </div>
+
+</body>
+</html>
+
+<!--- luftfuktighet --->
+<!--- temperatur --->
+<!--- elpris --->
+
+<!--- Lägga till nytt elpris--->
+<!--- En samlad rapport över luftfuktighet, temperatur och elpris atm--->

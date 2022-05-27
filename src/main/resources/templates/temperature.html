@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Temperature</title>
+    <link href="/test.css" rel="stylesheet">
+</head>
+<body>
+    <div class="header">
+        <div class="column">
+            <h1>Average Temperature</h1>
+        </div>
+        <div class="column">
+            <p th:text="'Latest temperature in area A : ' + ${latest_A.getTemperature()} + ' C'"></p>
+            <p th:text="'Latest temperature in area B : ' + ${latest_B.getTemperature()} + ' C'"></p>
+            <p th:text="'Latest temperature in area C : ' + ${latest_C.getTemperature()} + ' C'"></p>
+
+            <a th:href="@{/}">
+                <button>Back</button>
+            </a>
+        </div>
+    </div>
+
+
+    <div class="tableRow">
+
+        <div class="tableColumn">
+            <table>
+                <thead>
+                    <tr>
+                        <th>Temperature in area A</th>
+                        <th>Date</th>
+                    </tr>
+                </thead>
+                <tbody>
+
+                <tr th:each="obj : ${average_array_A}">
+                    <td th:text="${obj.getTemperature()} + ' C'"></td>
+                    <td th:text="${obj.getDate().getYear()+1900} + '-' + ${obj.getDate().getMonth()+1} + '-' + ${obj.getDate().getDate()}"></td>
+                </tr>
+                </tbody>
+            </table>
+        </div>
+
+        <div class="tableColumn">
+            <table>
+                <thead>
+                <tr>
+                    <th>Temperature in area B</th>
+                    <th>Date</th>
+                </tr>
+                </thead>
+                <tbody>
+
+                <tr th:each="obj : ${average_array_B}">
+                    <td th:text="${obj.getTemperature()} + ' C'"></td>
+                    <td th:text="${obj.getDate().getYear()+1900} + '-' + ${obj.getDate().getMonth()+1} + '-' + ${obj.getDate().getDate()}"></td>
+                </tr>
+                </tbody>
+            </table>
+        </div>
+
+        <div class="tableColumn">
+            <table>
+                <thead>
+                <tr>
+                    <th>Temperature in area C</th>
+                    <th>Date</th>
+                </tr>
+                </thead>
+                <tbody>
+
+                <tr th:each="obj : ${average_array_C}">
+                    <td th:text="${obj.getTemperature()} + ' C'"></td>
+                    <td th:text="${obj.getDate().getYear()+1900} + '-' + ${obj.getDate().getMonth()+1} + '-' + ${obj.getDate().getDate()}"></td>
+                </tr>
+                </tbody>
+            </table>
+
+        </div>
+        <div>
+
+        </div>
+    </div>
+
+</body>
+</html>

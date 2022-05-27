@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Report</title>
+    <link href="/test.css" rel="stylesheet">
+</head>
+<body>
+<div class="report">
+    <div class="title">
+        <h1>Report</h1>
+    </div>
+    <div class="latest">
+        <p th:text="'Latest report in area A = Temperature : ' + ${latest_A.getTemperature()} + ' C, Humidity : ' + ${latest_A.getHumidity()} + ' %, Date : ' + ${latest_A.getDate()} + ', Price : ' + ${price} + ' kr'"></p>
+        <p th:text="'Latest report in area B = Temperature : ' + ${latest_B.getTemperature()} + ' C, Humidity : ' + ${latest_B.getHumidity()} + ' %, Date : ' + ${latest_B.getDate()} + ', Price : ' + ${price} + ' kr'"></p>
+        <p th:text="'Latest report in area C = Temperature : ' + ${latest_C.getTemperature()} + ' C, Humidity : ' + ${latest_C.getHumidity()} + ' %, Date : ' + ${latest_C.getDate()} + ', Price : ' + ${price} + ' kr'"></p>
+        <a th:href="@{/}">
+            <button>Back</button>
+        </a>
+    </div>
+
+</div>
+
+<div>
+    <table class="report">
+        <thead>
+        <tr>
+            <th>Area</th>
+            <th>Temperature</th>
+            <th>Humidity</th>
+            <th>Date</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr th:each="obj : ${array}">
+            <td th:text="${obj.getArea()}"></td>
+            <td th:text="${obj.getTemperature()} + ' C'"></td>
+            <td th:text="${obj.getHumidity()} + ' %'"></td>
+            <td th:text="${obj.getDate()}"></td>
+        </tr>
+        </tbody>
+    </table>
+</div>
+
+</body>
+</html>
